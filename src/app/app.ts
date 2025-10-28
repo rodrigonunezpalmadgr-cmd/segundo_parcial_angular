@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+/*import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -10,3 +10,16 @@ import { RouterOutlet } from '@angular/router';
 export class App {
   protected readonly title = signal('segundo_parcial_angular');
 }
+*/
+
+import { provideHttpClient, withFetch } from '@angular/common/http';
+import { provideRouter } from '@angular/router';
+import { ApplicationConfig } from '@angular/core';
+import { routes } from './app.routes';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideRouter(routes),
+    provideHttpClient(withFetch()) // 👈 Esto es indispensable para usar HttpClient
+  ]
+};

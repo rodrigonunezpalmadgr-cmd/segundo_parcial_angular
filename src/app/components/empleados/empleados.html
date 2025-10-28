@@ -1,0 +1,25 @@
+<div class="p-4">
+  <h2>Lista de Empleados</h2>
+
+  <div *ngIf="loading">Cargando empleados...</div>
+  <div *ngIf="error" class="text-red-600">{{ error }}</div>
+
+  <table *ngIf="!loading && empleados.length > 0" border="1" cellpadding="6" cellspacing="0">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Cargo</th>
+        <th>Salario</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of empleados">
+        <td>{{ emp.id }}</td>
+        <td>{{ emp.nombre }}</td>
+        <td>{{ emp.cargo }}</td>
+        <td>{{ emp.salario }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
